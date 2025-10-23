@@ -1,0 +1,41 @@
+###Test 1: Signup new user
+
+POST http://localhost:5001/api/auth/signup 
+Content-Type: application/json
+
+{ "email": "testuser@example.com", "password": "testpass123" }
+
+
+
+###Test 2: Signup with duplicate email (should fail)
+
+POST http://localhost:5001/api/auth/signup 
+Content-Type: application/json
+
+{ "email": "testuser@example.com", "password": "testpass123" }
+
+
+
+###Test 3: Login with correct credentials
+
+POST http://localhost:5001/api/auth/login 
+Content-Type: application/json
+
+{ "email": "testuser@example.com", "password": "testpass123" }
+
+
+
+###Test 4: Login with incorrect password (should fail)
+
+POST http://localhost:5001/api/auth/login 
+Content-Type: application/json
+
+{ "email": "testuser@example.com", "password": "wrongpass" }
+
+
+###Test 5: Login with non-existent email (should fail)
+
+POST http://localhost:5001/api/auth/login 
+Content-Type: application/json
+
+{ "email": "nonexistent@example.com", "password": "testpass123" }

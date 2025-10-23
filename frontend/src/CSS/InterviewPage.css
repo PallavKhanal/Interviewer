@@ -1,0 +1,177 @@
+/* =============== VisaPrep · Camera Preview + Interview =============== */
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #000;
+}
+
+/* ---------- Pre-Interview ---------- */
+.pre-interview-screen {
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(circle at top, #1b2532, #0b0f13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ready-card {
+  background: #151b25;
+  padding: 60px 80px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  color: white;
+  max-width: 520px;
+}
+
+.ready-card h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.ready-card p {
+  font-size: 17px;
+  color: #a8b2c3;
+  margin: 16px 0 40px;
+}
+
+.begin-btn {
+  background: linear-gradient(135deg, #384959, #6a89a7);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.begin-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(106, 137, 167, 0.4);
+}
+
+/* ---------- Camera Preview ---------- */
+.preview-video {
+  width: 280px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+}
+
+/* ---------- Interview Mode ---------- */
+.interview-page {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.interview-fullscreen {
+  height: 100%;
+  width: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.user-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Controls ---------- */
+.call-controls {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  z-index: 10;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.control-btn:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.control-btn.off {
+  opacity: 0.6;
+}
+
+.control-btn.end {
+  background: #e53935;
+  color: white;
+  box-shadow: 0 0 20px rgba(229, 57, 53, 0.6);
+}
+
+.control-btn.end:hover {
+  background: #ff4b4b;
+  box-shadow: 0 0 35px rgba(255, 75, 75, 0.8);
+}
+
+/* ---------- Recording Indicator ---------- */
+.recording-indicator {
+  position: absolute;
+  top: 24px;
+  right: 40px;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 1px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #ff3b30;
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.2; }
+}
+
+@media (max-width: 768px) {
+  .control-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+  }
+  .call-controls { gap: 28px; }
+}
